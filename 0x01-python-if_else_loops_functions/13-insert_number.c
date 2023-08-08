@@ -1,4 +1,4 @@
-#include <list.h>
+#include "lists.h"
 
 /**
  * insert_node - the main function that insert
@@ -14,18 +14,18 @@ listint_t *insert_node(listint_t **head, int number)
 	listint_t *node = *head, *new;
 
 	new = malloc(sizeof(listint_t));
-	if (new == NULL)
-		return (NULL);
+	if (new == 0)
+		return (0);
 	new->n = number;
 
-	if (node == NULL || node->n >= number)
+	if (node == 0 || node->n >= number)
 	{
 		new->next = node;
 		*head = new;
 		return (new);
 	}
 
-	while (node->next != NULL)
+	while (node->next != 0)
 	{
 		if ((node->next)->n >= number)
 		{
