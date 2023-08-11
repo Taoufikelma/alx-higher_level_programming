@@ -2,11 +2,10 @@
 import sys
 from calculator_1 import add, sub, mul, div
 argv_len = len(sys.argv) - 1
-operators = ["+", "-", "*", "/"]
 if argv_len != 3:
     print("Usage: ./100-my_calculator.py <a> <operator> <b>")
     exit(1)
-elif sys.argv[2] not in operators:
+elif sys.argv[2] not in ("+", "-", "*", "/"):
     print("Unknown operator. Available operators: +, -, * and /")
     exit(1)
 else:
