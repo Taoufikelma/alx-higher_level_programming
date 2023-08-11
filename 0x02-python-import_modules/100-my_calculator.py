@@ -4,10 +4,10 @@ from calculator_1 import add, sub, mul, div
 argv_len = len(sys.argv) - 1
 if argv_len != 3:
     print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-    exit(1)
+    sys.exit(1)
 elif sys.argv[2] not in ("+", "-", "*", "/"):
     print("Unknown operator. Available operators: +, -, * and /")
-    exit(1)
+    sys.exit(1)
 else:
     a = int(sys.argv[1])
     b = int(sys.argv[3])
