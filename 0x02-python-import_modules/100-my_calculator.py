@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from sys import argv, exit
 from calculator_1 import add, sub, mul, div
-argv_len = len(argv[1:])
-if argv_len != 3:
+argv_len = len(argv)
+if argv_len != 4:
     print("Usage: ./100-my_calculator.py <a> <operator> <b>")
     exit(1)
 elif argv[2] not in ("+", "-", "*", "/"):
