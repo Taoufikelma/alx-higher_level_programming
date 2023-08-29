@@ -61,10 +61,10 @@ class Square:
                 print()
             while counter < self.__size:
 
-                j = 0
-                while j < pos1:
+                i = 0
+                while i < pos1:
                     print(" ", end='')  # replace position with space
-                    j += 1
+                    i += 1
 
                 number = 0
                 while number < self.__size:
