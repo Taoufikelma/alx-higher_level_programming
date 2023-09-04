@@ -1,29 +1,32 @@
 #!/usr/bin/python3
-"""
-Defines a Rectangle class.
-"""
+"""Module 4-rectangle"""
 
 
 class Rectangle:
-    """Rectangle class body. """
+    """Define a rectangle class"""
 
     def __init__(self, width=0, height=0):
-        """Initializes a Rectangle props in contructor.
+        """Initializes a Rectangle props in a contructor.
         """
         self.width = width
         self.height = height
 
     def __str__(self):
-        """Returns an informal string representation
+        """Returns an informal string representation of rectangle
         """
         if self.__height == 0 or self.__width == 0:
             return ''
-        record_str = ''
+        rectangle_str = ''
         for i in range(self.__height):
             for j in range(self.__width):
-                record_str += '#'
-            record_str += '\n'
-        return record_str[:-1]
+                rectangle_str += '#'
+            rectangle_str += '\n'
+        return rectangle_str[:-1]
+
+    def __repr__(self):
+        """Return internal string representation of a Rectangle
+        """
+        return "Rectangle({}, {})".format(self.__width, self.__height)
 
     @property
     def width(self):
@@ -61,7 +64,7 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
-        """Calculates and return  the perimeter of a Rectangle
+        """Calculates the perimeter of a Rectangle instance
         """
         if self.__height == 0 or self.__width == 0:
             return 0
