@@ -1,20 +1,23 @@
 #!/usr/bin/python3
-""" Pascal_traigle Module """
+""" Pascal_triangle module """
 
 
 def pascal_triangle(n):
     """
-        Pascal traigle class body
+        pascal triangle class body
     """
+
     if n <= 0:
         return []
 
-    triangles = [[1]]
-    while len(triangles) != n:
-        tri = triangles[-1]
-        tmp = [1]
-        for i in range(len(tri) - 1):
-            tmp.append(tri[i] + tri[i + 1])
-        tmp.append(1)
-        triangles.append(tmp)
-    return
+    triangle = []
+    for i in range(n):
+        row = [1]
+        if triangle:
+            prev_row = triangle[-1]
+            for j in range(len(prev_row) - 1):
+                row.append(prev_row[j] + prev_row[j + 1])
+            row.append(1)
+        triangle.append(row)
+
+    return triangle
