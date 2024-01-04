@@ -1,26 +1,16 @@
 #!/usr/bin/node
-
 const request = require('request');
-
-const args = process.argv;
-const url = args[2];
-
-request(url, (err, resp, body) => {
-  if (err) return console.log(err);
-  if (resp.statusCode !== 200) return console.log('Request Failed');
-
-  const bodyJson = JSON.parse(body);
-
-  const usersTodosCount = countUsersTodos(bodyJson);
-
-  console.log(usersTodosCount);
+request(process.argv[2], function (error, response, body) {
+  if (!error) {
+    const todos = JSON.parse(body);
+    let completed = {};
+    todos.forEach((todo) => {
+      if (todo.completed && completed[todo.userId] === undefined) {
+        completed[todo.userId] = 1;
+      } else if (todo.completed) {
+        completed[todo.userId] += 1;
+      }
+    });
+    console.log(completed);
+  }
 });
-
-function countUsersTodos (todos) {
-  const countTable = todos.reduce((table, todo) => {
-    table[todo.userId] = (table[todo.userId] ?? 0) + 1;
-    return table;
-  }, {});
-
-  return countTable;
-}
